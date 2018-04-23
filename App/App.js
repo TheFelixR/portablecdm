@@ -28,7 +28,7 @@ class App extends Component {
     let persistore = persistStore(store, null, () => {
       this.setState({rehydrated: true})
     });
-    // persistore.purge();
+    // persisdfgsdgsdstore.purge();
   }
 
 
