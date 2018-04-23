@@ -78,6 +78,25 @@ class SideMenu extends Component {
             <View style={styles.listContainer}>
                 <List style={{paddingTop: 0, backgroundColor: colorScheme.sidebarColor}}>
                     {/* Menu */}
+
+                    <ListItem
+                        containerStyle={activeItemKey === 'NewStart' ? [styles.menuContainer, styles.selectedContainer] : styles.menuContainer}
+                        leftIcon={{name:'home',
+                        color: 'white'
+                        }}
+                        hideChevron
+                        underlayColor={colorScheme.secondaryColor}
+                        title={
+                            <View style={styles.textContainer}>
+                                <Text style={canBeAccessedEverywhereExceptOnLogin}>NewStart</Text>     
+                            </View>
+                        }
+                        onPress={() => {
+                            if (activeItemKey !== 'NewStart' && activeItemKey != 'Login')
+                                navigate('Test');
+                        }}
+                    />
+
                     <ListItem
                         containerStyle={activeItemKey === 'PortCalls' ? [styles.menuContainer, styles.selectedContainer] : styles.menuContainer}
                         leftIcon={{
@@ -227,6 +246,24 @@ class SideMenu extends Component {
                         onPress={() => {
                             if (activeItemKey !== 'About' && activeItemKey != 'Login')
                                 navigate('About');
+                        }}
+                    />
+
+                    <ListItem
+                        containerStyle={activeItemKey === 'Test' ? [styles.menuContainer, styles.selectedContainer] : styles.menuContainer}
+                        leftIcon={{name:'info',
+                        color: 'white'
+                        }}
+                        hideChevron
+                        underlayColor={colorScheme.secondaryColor}
+                        title={
+                            <View style={styles.textContainer}>
+                                <Text style={canBeAccessedEverywhereExceptOnLogin}>Test</Text>     
+                            </View>
+                        }
+                        onPress={() => {
+                            if (activeItemKey !== 'Test' && activeItemKey != 'Login')
+                                navigate('Test');
                         }}
                     />
 
