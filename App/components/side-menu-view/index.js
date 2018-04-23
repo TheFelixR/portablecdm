@@ -93,7 +93,7 @@ class SideMenu extends Component {
                         }
                         onPress={() => {
                             if (activeItemKey !== 'NewStart' && activeItemKey != 'Login')
-                                navigate('Test');
+                                navigate('NewStart');
                         }}
                     />
 
