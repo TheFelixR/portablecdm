@@ -18,7 +18,7 @@ public class MainActivity extends DetachActivity {
 
   @Override
   public String publishedUrl() {
-    return "exp://exp.host/@oskar.lyrstrand/portcdm-app";
+    return "exp432e0186c47243658eeef37602b6c1c4://192.168.0.6:19000";
   }
 
   @Override

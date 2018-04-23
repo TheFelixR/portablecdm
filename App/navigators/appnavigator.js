@@ -21,6 +21,9 @@ import BearthList           from '../components/berth-list-view';
 import BerthList            from '../components/berth-list-view';
 import BerthTimeLine        from '../components/berth-timeline-view';
 
+//test
+import TestView         from '../components/test-view';
+
 const BerthViewNavigator = StackNavigator({
     BerthList: { screen: BearthList }, // THIS SHOULD BE FIRST!!
     BerthTimeLine: { screen: BerthTimeLine },
@@ -70,6 +73,9 @@ const MainNavigator = DrawerNavigator({
     VesselInfo: { screen: VesselInfo },
     Settings: { screen: SettingsNavigator },
     About: { screen: AboutView },
+    // test
+    Test: { screen: TestView },
+    //
     Error: { screen: ErrorView },
 }, {
     headerMode: 'none',

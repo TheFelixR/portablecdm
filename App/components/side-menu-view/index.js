@@ -229,6 +229,25 @@ class SideMenu extends Component {
                                 navigate('About');
                         }}
                     />
+                    
+                    <ListItem
+                        containerStyle={[styles.menuContainer]}
+                        leftIcon={{
+                            name:'exit-to-app',
+                        color: 'white'
+                        }}
+                        hideChevron
+                        underlayColor={colorScheme.secondaryColor}
+                        title={
+                            <View style={styles.textContainer}>
+                                <Text style={canBeAccessedEverywhereExceptOnLogin}>Test</Text>     
+                            </View>
+                        }
+                        onPress={() => {
+                            navigate('Test');
+                        }}
+                    />
+                    
 
                     <ListItem
                         containerStyle={[styles.menuContainer]}
