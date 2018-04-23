@@ -43,10 +43,10 @@ import colorScheme from '../../config/colors';
 import { createPortCallMessageAsObject, objectToXml } from '../../util/xmlUtils';
 import { cleanURN } from '../../util/stringUtils';
 import { getDateTimeString } from '../../util/timeservices';
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 import { hasComment, promptOpposite } from '../../config/instances';
->>>>>>> 7db59deffae50f7ed04d9ac475b6bdca6e768c8d
+//>>>>>>> 7db59deffae50f7ed04d9ac475b6bdca6e768c8d
 
 
 let navBackTimer      = null;
