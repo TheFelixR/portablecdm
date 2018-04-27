@@ -19,6 +19,7 @@
 !/App/navigators/*
 
 !/App/reducers/
+!/App/reducers/*
 
 !/App/config/
 !/App/config/*
