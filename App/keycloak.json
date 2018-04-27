@@ -1,7 +1,0 @@
-{
-  "realm" : "MaritimeCloud",
-  "auth-server-url" : "https://staging-maritimeid.maritimecloud.net/auth",
-  "ssl-required" : "none",
-  "resource" : "0.1-urn:mrn:stm:service:instance:viktoria:portablecdm-app",
-  "public-client" : true
-}
