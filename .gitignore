@@ -1,2 +1,14 @@
 # Ignore all
 *
+#unignore gitignore
+!.gitignore
+
+#unignore reflections
+!/reflections/
+
+#unignore only important folders
+!/App/actions/
+!/App/components/
+!/App/navigators/
+!/App/reducers/
+!/App/config/
