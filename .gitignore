@@ -8,7 +8,7 @@
 !reflections/
 
 #unignore only important folders
-!/App/actions/*
+!/App/actions/**
 !/App/components/*
 !/App/navigators/*
 !/App/reducers/*
