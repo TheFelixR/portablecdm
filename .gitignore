@@ -5,10 +5,21 @@
 
 #unignore reflections
 !/reflections/
+!/reflections/*
 
 #unignore only important folders
 !/App/actions/
+!/App/actions/*
+
 !/App/components/
+!/App/components/*
+!/App/components/**/*
+
 !/App/navigators/
+!/App/navigators/*
+
 !/App/reducers/
+
 !/App/config/
+!/App/config/*
+
