@@ -2,7 +2,6 @@
 /*
 
 #unignore gitignore
-!.gitignore
 
 #unignore reflections
 !/reflections/
@@ -19,6 +18,8 @@
 !/App/navigators/
 !/App/navigators/*
 
+
+!/App/reducers
 !/App/reducers/
 !/App/reducers/*
 
