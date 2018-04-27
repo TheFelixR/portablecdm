@@ -1,13 +1,10 @@
 # Ignore all
-/*
+*
 
-#unignore gitignore
+# Descende into App
+!App/
 
-#unignore reflections
-!/reflections/
-!/reflections/*
-
-#unignore only important folders
+# Descende into deeper subdirectories in App
 !/App/actions/
 !/App/actions/*
 
@@ -26,3 +23,9 @@
 !/App/config/
 !/App/config/*
 
+
+# Descende into reflections
+!reflections/
+
+# Descende deeper in reflections
+!/reflections/**
