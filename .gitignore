@@ -1,0 +1,33 @@
+# Ignore all
+*
+
+!.gitignore
+
+# Descende into App
+!App/
+
+# Descende into deeper subdirectories in App
+!/App/actions/
+!/App/actions/*
+
+!/App/components/
+!/App/components/*
+!/App/components/**/*
+
+!/App/navigators/
+!/App/navigators/*
+
+
+!/App/reducers
+!/App/reducers/
+!/App/reducers/*
+
+!/App/config/
+!/App/config/*
+
+
+# Descende into reflections
+!reflections/
+
+# Descende deeper in reflections
+!/reflections/**
