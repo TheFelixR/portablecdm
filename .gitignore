@@ -5,6 +5,8 @@
 
 # Descende into App
 !App/
+!App/*
+
 
 # Descende into deeper subdirectories in App
 !/App/actions/
