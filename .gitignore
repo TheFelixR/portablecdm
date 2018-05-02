@@ -13,11 +13,6 @@
 !App/
 !App/*
 
-!/App/node_modules/
-!/App/node_modules/*
-!/App/node_modules/**
-
-
 # Descende into deeper subdirectories in App
 !/App/actions/
 !/App/actions/*
