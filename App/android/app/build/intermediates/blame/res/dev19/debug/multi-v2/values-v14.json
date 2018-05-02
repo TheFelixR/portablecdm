@@ -1,0 +1,39 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/bruno/dit543/portablecdm/App/android/app/build/intermediates/incremental/mergeDev19DebugResources/merged.dir/values-v14/values-v14.xml",
+            "map": [
+                {
+                    "source": "/home/bruno/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.1.aar/399942386b62877f4b817f5aba58c0c5/res/values-v14/values-v14.xml",
+                    "from": {
+                        "startLines": "2,7,8,9,15",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,331,402,485,895",
+                        "endLines": "6,7,8,14,20",
+                        "endColumns": "12,70,82,12,12",
+                        "endOffsets": "326,397,480,890,1312"
+                    },
+                    "to": {
+                        "startLines": "5,10,11,12,18",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "206,482,553,636,1046",
+                        "endLines": "9,10,11,17,23",
+                        "endColumns": "12,70,82,12,12",
+                        "endOffsets": "477,548,631,1041,1463"
+                    }
+                },
+                {
+                    "source": "/home/bruno/.gradle/caches/transforms-1/files-1.1/CreditCardEntry-1.4.8.4.aar/b695993d0802cd03c773c2c8cfa3b8a6/res/values-v14/values-v14.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "201"
+                    }
+                }
+            ]
+        }
+    ]
+}

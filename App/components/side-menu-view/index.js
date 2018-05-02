@@ -213,6 +213,25 @@ class SideMenu extends Component {
                     />
 
                     <ListItem
+                        containerStyle={activeItemKey === 'VesselTest' ? [styles.menuContainer, styles.selectedContainer] : styles.menuContainer}
+                        leftIcon={{
+                          name:'settings',
+                          color: 'white',
+                        }}
+                        hideChevron
+                        underlayColor={colorScheme.secondaryColor}
+                        title={
+                            <View style={styles.textContainer}>
+                                <Text style={canBeAccessedEverywhereExceptOnLogin} >Vessel Test</Text>     
+                            </View>
+                        }
+                        onPress={() => {
+                            if(activeItemKey !== 'VesselTest' && activeItemKey != 'Login')
+                                navigate('VesselTest');
+                        }}
+                    />
+
+                    <ListItem
                         containerStyle={activeItemKey === 'About' ? [styles.menuContainer, styles.selectedContainer] : styles.menuContainer}
                         leftIcon={{name:'info',
                         color: 'white'
