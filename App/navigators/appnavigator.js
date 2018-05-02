@@ -20,6 +20,8 @@ import ErrorView            from '../components/error-view';
 import BearthList           from '../components/berth-list-view';
 import BerthList            from '../components/berth-list-view';
 import BerthTimeLine        from '../components/berth-timeline-view';
+import TestView             from '../components/dev';
+
 
 const BerthViewNavigator = StackNavigator({
     BerthList: { screen: BearthList }, // THIS SHOULD BE FIRST!!
@@ -61,6 +63,11 @@ const InitiatePortCallNavigator = StackNavigator({
     headerMode: 'none'
 });
 
+
+const TestAreaNavigator = StackNavigator({
+   Test :{screen : TestView},
+});
+
 const MainNavigator = DrawerNavigator({
     PortCalls: { screen: PortCallListNavigator }, // THIS SHOULD BE FIRST!!
     Berths: { screen: BerthViewNavigator }, 
@@ -71,6 +78,7 @@ const MainNavigator = DrawerNavigator({
     Settings: { screen: SettingsNavigator },
     About: { screen: AboutView },
     Error: { screen: ErrorView },
+    Test: {screen : TestView},
 }, {
     headerMode: 'none',
     drawerWidth: 3*Dimensions.get('window').width/4, 
