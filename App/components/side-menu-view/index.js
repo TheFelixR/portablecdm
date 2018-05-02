@@ -248,7 +248,30 @@ class SideMenu extends Component {
                             }
                         }
                     />
+                        
+                    <ListItem
+                        containerStyle = {[activeItemKey === 'Test' ? [styles.menuContainer, styles.selectedContainer] : styles.menuContainer, styles.devBackground]}
+                        leftIcon ={{
+                            name: 'smoking-rooms',
+                            color: 'red',
+                            }}
+                            hideChevron
+                            underlayColor={colorScheme.secondaryColor}
+                            title ={
+                                <View>
+                                    <Text style ={[canBeAccessedEverywhereExceptOnLogin ]}>DEVAREA</Text>
+                                </View>
+                            }
+                           onPress={() => {
+                                if (activeItemKey !== 'Test' && activeItemKey != 'Login')
+                                    navigate('Test');
+                            }
+                        }
+
+                    />
                 </List>
+                
+
             </View>
 
             <View style={{height: 25, backgroundColor: colorScheme.sidebarColor}} />
@@ -286,6 +309,7 @@ const styles = StyleSheet.create({
     backgroundColor: colorScheme.sidebarColor,
     paddingLeft: 10,
   },
+
   menuText: {
     color: colorScheme.primaryTextColor,
   },
@@ -305,6 +329,16 @@ const styles = StyleSheet.create({
   underlayColorStyle: {
       color: colorScheme.tertiaryTextColor
   },
+
+
+  // ----- Styles used for dev options -------
+  devBackground: {
+    backgroundColor: 'green'
+},
+
+  devIcon: {
+      color : 'red'
+  }
 
 })
 
