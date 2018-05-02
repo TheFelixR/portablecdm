@@ -20,7 +20,6 @@ import ErrorView            from '../components/error-view';
 import BearthList           from '../components/berth-list-view';
 import BerthList            from '../components/berth-list-view';
 import BerthTimeLine        from '../components/berth-timeline-view';
-import TestView             from '../components/test-view';
 import NewStart             from '../components/newstart-view';
 
 const BerthViewNavigator = StackNavigator({
@@ -73,7 +72,6 @@ const MainNavigator = DrawerNavigator({
     Settings: { screen: SettingsNavigator },
     About: { screen: AboutView },
     Error: { screen: ErrorView },
-    Test: { screen: TestView },
     NewStart: { screen: NewStart }
 }, {
     headerMode: 'none',
