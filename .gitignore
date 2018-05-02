@@ -5,9 +5,9 @@
 
 !.gitignore
 
-!/resources/
-!/resources/*
-!/resources/**
+!/App/assets/
+!/App/assets/*
+!/App/assets/**
 
 # Descende into App
 !App/
