@@ -5,13 +5,17 @@
 
 !.gitignore
 
+!/resources/
+!/resources/*
+!/resources/**
+
 # Descende into App
 !App/
 !App/*
 
-!/node_modules/
-!/node_modules/*
-!/node_modules/**
+!/App/node_modules/
+!/App/node_modules/*
+!/App/node_modules/**
 
 
 # Descende into deeper subdirectories in App
