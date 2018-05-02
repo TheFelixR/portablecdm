@@ -1,102 +1,159 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { selectPortCall } from '../../actions';
 
 import {
 	View,
+	Text,
 	StyleSheet,
-	Image,
-	Dimensions,
 	ScrollView,
-	Modal,
-	Platform,
 } from 'react-native';
 
 import {
-	Text,
-	SearchBar,
 	Button,
 	List,
 	ListItem,
 	Icon,
 } from 'react-native-elements';
 
-import TopHeader from '../top-header-view';
-import PortCall from '../portcall-list-view';
 import colorScheme from '../../config/colors';
+import TopHeader from '../top-header-view';
+import { getDateTimeString } from '../../util/timeservices';
 
-export default class NewStart extends Component {
-	constructor(props) {
-		super(props);
-	}
+class NewStart extends Component {
+
 	render() {
+		const { navigation, portCalls, selectPortCall } = this.props;
+		const { navigate } = navigation;
+
 		return (
-			
 			<View style={styles.container}>
-			<TopHeader title="New Start" navigation={this.props.navigation} firstPage/>
-			<ScrollView>
-			<List>
-			{
-				<ListItem
-				roundAvatar
-				avatar={'../../assets/riseLogo.png'}
-				key={123}
-				title={'Gothia Boat'}
-				titleStyle={styles.titleStyle}
-				subtitle={'2018/01/01 13:37'}
-				subtitleStyle={styles.subTitleStyle}
-				/> 
-			}
-			{	
-				<ListItem
-				roundAvatar
-				avatar={'../../assets/riseLogo.png'}
-				key={124}
-				title={'I am the Captain now!'}
-				titleStyle={styles.titleStyle}
-				subtitle={'2018/01/01 13:37'}
-				subtitleStyle={styles.subTitleStyle}
-				/>
-			}
-				</List>
+
+				<TopHeader title="          Agent Start              " navigation={this.props.navigation} firstPage
+					selectorIcon={{
+							name: 'filter-list',
+							color: colorScheme.primaryTextColor,
+							onPress: () => navigate('FilterMenu'),
+						}}/>
+
+				<ScrollView>
+					<List>
+						{
+							this.favoritePortCalls(portCalls).map((portCall) => (
+								<ListItem
+									roundAvatar
+									avatar={portCall.vessel.photoURL ? { uri: portCall.vessel.photoURL } : null}
+									key={portCall.portCallId}
+									title={portCall.vessel.name}
+									badge={{ element: this.renderFavorites(portCall) }}
+									titleStyle={styles.titleStyle}
+									subtitleNumberOfLines={3}
+									subtitle={this.getLastEvent(portCall) + '\n' +
+										getDateTimeString(new Date(portCall.startTime))}
+									subtitleStyle={styles.subTitleStyle}
+									onPress={() => {
+										selectPortCall(portCall);
+										navigate(this.navigateStage(portCall));
+									}}
+								/>
+							))
+						}
+					</List>
 				</ScrollView>
-				</View>
-			);
+			</View>
+		);
+	}
+
+	getLastEvent(portCall) {
+		return (true ? 'VESSEL AT BERTH' : 'VESSEL DEPARTED')
+	}
+
+	navigateStage(portCall) {
+		switch (portCall.stage) {
+			case 'PLANNED':
+				return 'TimeLine';
+				break;
+			case 'UNDER WAY':
+				return 'TimeLine';
+				break;
+			case 'ARRIVED':
+				return 'TimeLine';
+				break;
+			case 'BERTHED':
+				return 'TimeLine';
+				break;
+			case 'ANCHORED':
+				return 'TimeLine';
+				break;
+			case 'SAILED':
+				return 'TimeLine';
+				break;
+			default:
+				return 'Error';
+				break;
 		}
 	}
-	
-	const styles = StyleSheet.create({
-		container: {
-			flex: 1,
-			backgroundColor: colorScheme.primaryColor
-		},
-		// Search bar and filter button
-		containerRow: {
-			flexDirection: 'row',
-			alignItems:'center',
-			marginTop: 10,
-			paddingLeft: 15,
-			paddingRight: 0,
-		},
-		searchBarContainer: {
-			backgroundColor: colorScheme.primaryColor,
-			flex: 4,
-			marginRight: 0,
-			borderBottomWidth: 0,
-			borderTopWidth: 0,
-		},
-		// Filter button container
-		buttonContainer: {
-			flex: 1,
-			marginRight: 0,
-			marginLeft: 0,
-			alignSelf: 'stretch',
-		},
-		iconStyle: {
-			alignSelf: 'stretch',
-		},
-		titleStyle: {
-			color: colorScheme.quaternaryTextColor,
-		},
-		subTitleStyle: {
-			color: colorScheme.tertiaryTextColor,
-		},
-	})
+
+	renderFavorites(portCall) {
+		return (
+			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+				{!!portCall.stage && <Text style={[styles.subTitleStyle, { fontSize: 11, marginLeft: 4 }]}>
+					{portCall.stage.replace(/_/g, ' ')}
+				</Text>}
+			</View>
+		);
+	}
+
+	isFavorite(portCall) {
+		return this.props.favoritePortCalls.includes(portCall.portCallId) ||
+			this.props.favoriteVessels.includes(portCall.vessel.imo);
+	}
+
+	sortFilters(a, b) {
+		let { filters } = this.props;
+		let invert = filters.order === 'ASCENDING';
+		if (filters.sort_by === 'LAST_UPDATE') {
+			if (a.lastUpdated > b.lastUpdated)
+				return invert ? 1 : -1;
+			else return invert ? -1 : 1;
+		} else if (filters.sort_by === 'ARRIVAL_DATE') {
+			if (a.startTime > b.startTime)
+				return invert ? 1 : -1;
+			else return invert ? -1 : 1;
+		}
+		return 0;
+	}
+
+	favoritePortCalls(portCalls) {
+		return portCalls.filter(portCall => {
+			if (this.isFavorite(portCall)) { return portCall; }
+		}).sort((a, b) => this.sortFilters(a, b));
+	}
+}
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: colorScheme.primaryColor
+	},
+	titleStyle: {
+		color: colorScheme.quaternaryTextColor,
+	},
+	subTitleStyle: {
+		color: colorScheme.tertiaryTextColor,
+	},
+})
+
+function mapStateToProps(state) {
+	return {
+		portCalls: state.cache.portCalls,
+		favoritePortCalls: state.favorites.portCalls,
+		favoriteVessels: state.favorites.vessels,
+		filters: state.filters,
+		error: state.error,
+	}
+}
+
+export default connect(mapStateToProps, {
+	selectPortCall,
+})(NewStart);
