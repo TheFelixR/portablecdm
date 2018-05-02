@@ -9,6 +9,10 @@
 !App/
 !App/*
 
+!/node_modules/
+!/node_modules/*
+!/node_modules/**
+
 
 # Descende into deeper subdirectories in App
 !/App/actions/
