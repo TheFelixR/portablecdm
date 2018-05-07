@@ -6,6 +6,7 @@ import LoginView            from '../components/login-view';
 import SendPortCall         from '../components/send-portcall-view';
 import StateList            from '../components/state-list-view';
 import TimeLineView         from '../components/timeline-view';
+import TimeLineViewBefore   from '../components/timeline-view-before';
 import PortCallList         from '../components/portcall-list-view';
 import FilterMenu           from '../components/portcall-list-view/sections/filterMenu';
 import StateDetails         from '../components/timeline-view/sections/statedetails';
@@ -39,6 +40,16 @@ const TimeLineNavigator = StackNavigator({
   headerMode: 'none',
 });
 
+const TimeLineBeforeNavigator = StackNavigator({
+  TimeLineDetails: {screen: TimeLineViewBefore},
+  StateDetails: { screen: StateDetails},
+  FavoriteStates: { screen: StateList },
+  SelectFavoriteStatesTimeLine: { screen: SelectFavoriteState },
+  SendPortCall: { screen: SendPortCall },
+}, {
+  headerMode: 'none',
+});
+
 const PortCallListNavigator = StackNavigator({
   PortCallList: { screen: PortCallList},
   FilterMenu: {screen: FilterMenu},
@@ -47,9 +58,9 @@ const PortCallListNavigator = StackNavigator({
 });
 
 const SettingsNavigator = StackNavigator({
-  SettingsStart: { screen: Settings },  
+  SettingsStart: { screen: Settings },
   VesselLists: { screen: VesselLists},
-  FavoriteStateSetting: { screen: SelectFavoriteState },  
+  FavoriteStateSetting: { screen: SelectFavoriteState },
 }, {
   headerMode: 'none'
 })
@@ -64,8 +75,9 @@ const InitiatePortCallNavigator = StackNavigator({
 
 const MainNavigator = DrawerNavigator({
     PortCalls: { screen: PortCallListNavigator }, // THIS SHOULD BE FIRST!!
-    Berths: { screen: BerthViewNavigator }, 
+    Berths: { screen: BerthViewNavigator },
     TimeLine: {screen: TimeLineNavigator},
+    TimeLineBefore: {screen: TimeLineBeforeNavigator},
     FavoriteStatesSideMenu: { screen: StateList },
     FavoriteStatesInit: { screen: InitiatePortCallNavigator },
     VesselInfo: { screen: VesselInfo },
@@ -75,13 +87,13 @@ const MainNavigator = DrawerNavigator({
     NewStart: { screen: NewStart }
 }, {
     headerMode: 'none',
-    drawerWidth: 3*Dimensions.get('window').width/4, 
+    drawerWidth: 3*Dimensions.get('window').width/4,
     contentComponent: SideMenu,
 });
 
 export const AppNavigator  = StackNavigator({
     LoginView: { screen: LoginView },
-    //LoginKeyCloak: { screen: LoginKeyCloakView }, 
+    //LoginKeyCloak: { screen: LoginKeyCloakView },
     Application: { screen: MainNavigator},
 }, {
     headerMode: 'none',
