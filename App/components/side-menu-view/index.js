@@ -98,6 +98,24 @@ class SideMenu extends Component {
                     />
 
                     <ListItem
+                        containerStyle={activeItemKey === 'Checkboxes' ? [styles.menuContainer, styles.selectedContainer] : styles.menuContainer}
+                        leftIcon={{name:'home',
+                        color: 'white'
+                        }}
+                        hideChevron
+                        underlayColor={colorScheme.secondaryColor}
+                        title={
+                            <View style={styles.textContainer}>
+                                <Text style={canBeAccessedEverywhereExceptOnLogin}>Checkboxes</Text>     
+                            </View>
+                        }
+                        onPress={() => {
+                            if (activeItemKey !== 'Checkboxes' && activeItemKey != 'Login')
+                                navigate('Checkboxes');
+                        }}
+                    />
+
+                    <ListItem
                         containerStyle={activeItemKey === 'PortCalls' ? [styles.menuContainer, styles.selectedContainer] : styles.menuContainer}
                         leftIcon={{
                           name:'home',
