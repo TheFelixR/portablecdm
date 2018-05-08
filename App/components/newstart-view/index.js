@@ -71,26 +71,11 @@ class NewStart extends Component {
 	navigateStage(portCall) {
 		switch (portCall.stage) {
 			case 'PLANNED':
-				return 'TimeLine';
-				break;
-			case 'UNDER WAY':
-				return 'TimeLine';
-				break;
-			case 'ARRIVED':
-				return 'TimeLine';
-				break;
-			case 'BERTHED':
-				return 'TimeLine';
-				break;
-			case 'ANCHORED':
-				return 'TimeLine';
-				break;
+			case 'UNDER_WAY':
+				return 'TimeLineBefore';
 			case 'SAILED':
-				return 'TimeLine';
-				break;
 			default:
-				return 'Error';
-				break;
+				return 'TimeLine';
 		}
 	}
 
