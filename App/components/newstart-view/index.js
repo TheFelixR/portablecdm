@@ -28,14 +28,12 @@ class NewStart extends Component {
 
 		return (
 			<View style={styles.container}>
-
 				<TopHeader title="          Agent Start              " navigation={this.props.navigation} firstPage
 					selectorIcon={{
 							name: 'filter-list',
 							color: colorScheme.primaryTextColor,
 							onPress: () => navigate('FilterMenu'),
 						}}/>
-
 				<ScrollView>
 					<List>
 						{
@@ -47,8 +45,8 @@ class NewStart extends Component {
 									title={portCall.vessel.name}
 									badge={{ element: this.renderFavorites(portCall) }}
 									titleStyle={styles.titleStyle}
-									subtitleNumberOfLines={3}
-									subtitle={this.getLastEvent(portCall) + '\n' +
+									subtitleNumberOfLines={4}
+									subtitle={this.getLastEvent(portCall) + '\n\n' +
 										getDateTimeString(new Date(portCall.startTime))}
 									subtitleStyle={styles.subTitleStyle}
 									onPress={() => {
@@ -65,7 +63,9 @@ class NewStart extends Component {
 	}
 
 	getLastEvent(portCall) {
-		return (true ? 'VESSEL AT BERTH' : 'VESSEL DEPARTED')
+		let info = `Last ${portCall.lastUpdatedTimeType}: ` + getDateTimeString(new Date(portCall.lastUpdated)) +'\n'+
+			portCall.lastUpdatedState.replace(/_/g,' ');
+		return info;
 	}
 
 	navigateStage(portCall) {
@@ -73,7 +73,12 @@ class NewStart extends Component {
 			case 'PLANNED':
 			case 'UNDER_WAY':
 				return 'TimeLineBefore';
+			case 'ARRIVED' :
+			case 'BERTHED' :
+				//return 'Stage2View';
 			case 'SAILED':
+			case 'ANCHORED' :
+				//return 'Stage3View';
 			default:
 				return 'TimeLine';
 		}
