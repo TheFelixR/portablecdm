@@ -35,7 +35,7 @@ MERGED from [com.android.support:exifinterface:26.0.1] /home/bruno/.gradle/cache
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.0.1] /home/bruno/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.0.1.aar/8ea434cfcc14c8369f0e1febb78de406/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-core:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/firebase-core-9.8.0.aar/3599bc219085aa0b5ded62b5a402a6ee/AndroidManifest.xml:2:1-6:12
 MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] /home/bruno/.gradle/caches/transforms-1/files-1.1/leakcanary-android-no-op-1.4-beta1.aar/4076f934dc1ff748a3443ba18abd7971/AndroidManifest.xml:17:1-24:12
-MERGED from [com.stripe:stripe-android:2.1.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/stripe-android-2.1.0.aar/1005fe8f2536e3f0e60a23b68b28071e/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-maps] /home/bruno/dit543/portablecdm/App/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-12:12
 MERGED from [com.google.android.gms:play-services-iid:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-iid-9.8.0.aar/027a6ad13ad626db0d6ac2aae763f714/AndroidManifest.xml:16:1-24:12
 MERGED from [com.google.android.gms:play-services-analytics-impl:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-9.8.0.aar/06e330ed2b8a9bff1f5e46eb8dbd6067/AndroidManifest.xml:16:1-27:12
 MERGED from [com.google.android.gms:play-services-auth-base:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-9.8.0.aar/68107afa9f87c5ca83ff1840715113b3/AndroidManifest.xml:2:1-5:12
@@ -43,6 +43,7 @@ MERGED from [com.google.android.gms:play-services-clearcut:9.8.0] /home/bruno/.g
 MERGED from [com.google.android.gms:play-services-vision:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-vision-9.8.0.aar/defa48fe46cab4500cafa70cd1ac7440/AndroidManifest.xml:2:1-5:12
 MERGED from [com.google.android.gms:play-services-identity:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-identity-9.8.0.aar/bdae2295b046249b38b389a0bb614f0b/AndroidManifest.xml:16:1-19:12
 MERGED from [com.google.android.gms:play-services-base:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c219942d65334576e445ca08a8b24077/AndroidManifest.xml:16:1-21:12
+MERGED from [com.stripe:stripe-android:2.1.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/stripe-android-2.1.0.aar/1005fe8f2536e3f0e60a23b68b28071e/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-ads-lite:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-9.8.0.aar/d9a931f3804b77c0ae0605b75bfbed87/AndroidManifest.xml:16:1-28:12
 MERGED from [com.google.android.gms:play-services-gass:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-gass-9.8.0.aar/47b9cfc8f7723b0f6dc3d0256f343b4a/AndroidManifest.xml:2:1-5:12
 MERGED from [com.google.firebase:firebase-analytics:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.8.0.aar/030735f00dcf336ea6bad9cb58928211/AndroidManifest.xml:16:1-34:12
@@ -173,6 +174,8 @@ MERGED from [com.google.android.gms:play-services-maps:9.8.0] /home/bruno/.gradl
 MERGED from [com.google.android.gms:play-services-maps:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-maps-9.8.0.aar/e20662698f279a18780713b017ed8198/AndroidManifest.xml:20:5-66
 MERGED from [net.openid:appauth:0.4.1] /home/bruno/.gradle/caches/transforms-1/files-1.1/appauth-0.4.1.aar/4470ac62adf07a0ac2e127cf37da7249/AndroidManifest.xml:24:5-67
 MERGED from [net.openid:appauth:0.4.1] /home/bruno/.gradle/caches/transforms-1/files-1.1/appauth-0.4.1.aar/4470ac62adf07a0ac2e127cf37da7249/AndroidManifest.xml:24:5-67
+MERGED from [:react-native-maps] /home/bruno/dit543/portablecdm/App/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:5-67
+MERGED from [:react-native-maps] /home/bruno/dit543/portablecdm/App/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:9:5-67
 MERGED from [com.google.android.gms:play-services-iid:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-iid-9.8.0.aar/027a6ad13ad626db0d6ac2aae763f714/AndroidManifest.xml:21:5-66
 MERGED from [com.google.android.gms:play-services-iid:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-iid-9.8.0.aar/027a6ad13ad626db0d6ac2aae763f714/AndroidManifest.xml:21:5-66
 MERGED from [com.google.android.gms:play-services-analytics-impl:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-9.8.0.aar/06e330ed2b8a9bff1f5e46eb8dbd6067/AndroidManifest.xml:20:5-66
@@ -273,6 +276,8 @@ MERGED from [host.exp.exponent:expoview:25.0.0] /home/bruno/.gradle/caches/trans
 MERGED from [host.exp.exponent:expoview:25.0.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/expoview-25.0.0.aar/777e561a516820ac2f8efe7ac80c8155/AndroidManifest.xml:36:5-81
 MERGED from [io.nlopez.smartlocation:library:3.2.11] /home/bruno/.gradle/caches/transforms-1/files-1.1/library-3.2.11.aar/413f82b32f10fa824d5bdfc799ef454f/AndroidManifest.xml:12:5-81
 MERGED from [io.nlopez.smartlocation:library:3.2.11] /home/bruno/.gradle/caches/transforms-1/files-1.1/library-3.2.11.aar/413f82b32f10fa824d5bdfc799ef454f/AndroidManifest.xml:12:5-81
+MERGED from [:react-native-maps] /home/bruno/dit543/portablecdm/App/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:10:5-81
+MERGED from [:react-native-maps] /home/bruno/dit543/portablecdm/App/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:10:5-81
 	android:name
 		ADDED from /home/bruno/dit543/portablecdm/App/android/app/src/main/AndroidManifest.xml:29:20-76
 uses-permission#android.permission.ACCESS_FINE_LOCATION
@@ -845,8 +850,8 @@ MERGED from [com.google.firebase:firebase-core:9.8.0] /home/bruno/.gradle/caches
 MERGED from [com.google.firebase:firebase-core:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/firebase-core-9.8.0.aar/3599bc219085aa0b5ded62b5a402a6ee/AndroidManifest.xml:4:5-42
 MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] /home/bruno/.gradle/caches/transforms-1/files-1.1/leakcanary-android-no-op-1.4-beta1.aar/4076f934dc1ff748a3443ba18abd7971/AndroidManifest.xml:20:5-22:41
 MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] /home/bruno/.gradle/caches/transforms-1/files-1.1/leakcanary-android-no-op-1.4-beta1.aar/4076f934dc1ff748a3443ba18abd7971/AndroidManifest.xml:20:5-22:41
-MERGED from [com.stripe:stripe-android:2.1.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/stripe-android-2.1.0.aar/1005fe8f2536e3f0e60a23b68b28071e/AndroidManifest.xml:7:5-9:41
-MERGED from [com.stripe:stripe-android:2.1.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/stripe-android-2.1.0.aar/1005fe8f2536e3f0e60a23b68b28071e/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-maps] /home/bruno/dit543/portablecdm/App/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-maps] /home/bruno/dit543/portablecdm/App/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-iid:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-iid-9.8.0.aar/027a6ad13ad626db0d6ac2aae763f714/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-iid:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-iid-9.8.0.aar/027a6ad13ad626db0d6ac2aae763f714/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-analytics-impl:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-9.8.0.aar/06e330ed2b8a9bff1f5e46eb8dbd6067/AndroidManifest.xml:17:5-42
@@ -861,6 +866,8 @@ MERGED from [com.google.android.gms:play-services-identity:9.8.0] /home/bruno/.g
 MERGED from [com.google.android.gms:play-services-identity:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-identity-9.8.0.aar/bdae2295b046249b38b389a0bb614f0b/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-base:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c219942d65334576e445ca08a8b24077/AndroidManifest.xml:17:5-42
 MERGED from [com.google.android.gms:play-services-base:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-base-9.8.0.aar/c219942d65334576e445ca08a8b24077/AndroidManifest.xml:17:5-42
+MERGED from [com.stripe:stripe-android:2.1.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/stripe-android-2.1.0.aar/1005fe8f2536e3f0e60a23b68b28071e/AndroidManifest.xml:7:5-9:41
+MERGED from [com.stripe:stripe-android:2.1.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/stripe-android-2.1.0.aar/1005fe8f2536e3f0e60a23b68b28071e/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-ads-lite:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-9.8.0.aar/d9a931f3804b77c0ae0605b75bfbed87/AndroidManifest.xml:22:5-42
 MERGED from [com.google.android.gms:play-services-ads-lite:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-9.8.0.aar/d9a931f3804b77c0ae0605b75bfbed87/AndroidManifest.xml:22:5-42
 MERGED from [com.google.android.gms:play-services-gass:9.8.0] /home/bruno/.gradle/caches/transforms-1/files-1.1/play-services-gass-9.8.0.aar/47b9cfc8f7723b0f6dc3d0256f343b4a/AndroidManifest.xml:3:5-42

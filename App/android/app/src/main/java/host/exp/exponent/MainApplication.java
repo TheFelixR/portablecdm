@@ -7,6 +7,8 @@ import com.localz.PinchPackage;
 import java.util.Arrays;
 import java.util.List;
 
+import com.airbnb.android.react.maps.MapsPackage;
+
 // Needed for `react-native link`
 // import com.facebook.react.ReactApplication;
 
@@ -26,7 +28,8 @@ public class MainApplication extends ExpoApplication {
 
         // Needed for `react-native link`
             //new MainReactPackage(),
-            new PinchPackage()
+            new PinchPackage(),
+            new MapsPackage()
     );
   }
 
