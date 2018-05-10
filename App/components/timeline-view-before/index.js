@@ -30,23 +30,10 @@ import {
     toggleFavoritePortCall,
     toggleFavoriteVessel,
 } from '../../actions';
-import { getTimeDifferenceString } from '../../util/timeservices';
+import { getTimeDifferenceString, getDateTimeString } from '../../util/timeservices';
 import colorScheme from '../../config/colors';
 const timer = null;
 const portCallId = null;
-const scriptSnippet = "<script type='text/javascript'>" +
-                    "width='99.9%';" +
-                    "height='450';" +
-                    "border='0';" +
-                    "shownames='false';" +
-                    "latitude='37.4460';" +
-                    "longitude='24.9467';" +
-                    "zoom='10';" +
-                    "maptype='2';" +
-                    "trackvessel='0';" +
-                    "fleet='';" +
-                    "</script>" +
-                    "<script type='text/javascript' src='http://marinetraffic.com/js/embed.js'></script>";
 
 class TimeLineViewBefore extends Component {
     constructor(props) {
@@ -104,14 +91,14 @@ class TimeLineViewBefore extends Component {
     }
 
     render() {
-        const { loading, operations, vesselName } = this.props;
+        const { loading, operations, vesselName, mmsi, etb } = this.props;
         const {params} = this.props.navigation.state;
         let { dataSource } = this.state;
+        console.log(etb);
 
         if(!loading) dataSource = dataSource.cloneWithRows(operations);
 
         return(
-
 
             <View style={{flex: 1, backgroundColor: colorScheme.primaryContainerColor}}>
                 <TopHeader
@@ -130,12 +117,31 @@ class TimeLineViewBefore extends Component {
                     }
                 </View>
 
+                <Text style={styles.headerText2}>ETB: {getDateTimeString(new Date(etb))}</Text>
+
                 <WebView
-                source={{ html: scriptSnippet }}
+                source={{ html: this.createMap(mmsi) }}
                 />
+
 
             </View>
         );
+    }
+
+    createMap(mmsi) {
+      return "<script type='text/javascript'>" +
+             "width='99.9%';" +
+             "height='450';" +
+             "border='0';" +
+             "shownames='false';" +
+             //"latitude='37.4460';" +
+             //"longitude='24.9467';" +
+             //"zoom='6';" +
+             "maptype='2';" +
+             "trackvessel='" + mmsi.replace('urn:mrn:stm:vessel:MMSI:', '') + "';" +
+             "fleet='0';" +
+             "</script>" +
+             "<script type='text/javascript' src='http://marinetraffic.com/js/embed.js'></script>";
     }
 
     createShowHideExpiredIcon() {
@@ -185,6 +191,12 @@ const styles = StyleSheet.create ({
         fontSize: 20,
         color: colorScheme.primaryTextColor,
     },
+    headerText2: {
+      textAlign: 'center',
+      color: colorScheme.quaternaryTextColor,
+      fontSize: 24,
+      fontWeight: 'bold',
+    },
     headerTitleText: {
         textAlign: 'center',
         color: colorScheme.secondaryContainerColor,
@@ -200,6 +212,8 @@ function mapStateToProps(state) {
         operations: state.portCalls.selectedPortCallOperations,
         vesselName: state.portCalls.vessel.name,
         imo: state.portCalls.vessel.imo,
+        mmsi: state.portCalls.vessel.mmsi,
+        etb: state.portCalls.selectedPortCall.lastUpdated,
         portCallId: state.portCalls.selectedPortCall.portCallId,
         favoritePortCalls: state.favorites.portCalls,
         favoriteVessels: state.favorites.vessels,
