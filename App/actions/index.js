@@ -14,6 +14,7 @@ export * from './vesselactions';
 export * from './eventactions';
 export * from './berthactions';
 
+export * from './taskactions';
 
 
 

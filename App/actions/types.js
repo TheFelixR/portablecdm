@@ -81,3 +81,7 @@ export const ADD_FAVORITE_LOCATIONS = 'add_favorite_location';
 
 /* ERRORS */
 export const ERR_DISPATCHED = 'dispatched';
+
+/* TASK */
+export const ADD_NEW_TASK = 'ADD_NEW_TASK';
+export const TOGGLE_ONE_TASK = 'TOGGLE_ONE_TASK';
