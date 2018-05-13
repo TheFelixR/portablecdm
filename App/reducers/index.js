@@ -1,6 +1,7 @@
 //import { combineReducers } from 'redux';
 import { persistCombineReducers } from 'redux-persist';
 import { AsyncStorage } from 'react-native';
+
 import portCallReducer from './portcallreducer';
 import stateReducer from './statereducer';
 import settingsReducer from './settingsreducer';
@@ -12,6 +13,7 @@ import errorReducer from './errorreducer';
 import favoritesReducer from './favoritesreducer';
 import cacheReducer from './cachereducer';
 import berthReduder from './berthreducer';
+import taskReducers from './taskReducers';
 
 export default persistCombineReducers(
   { 
@@ -29,5 +31,6 @@ export default persistCombineReducers(
   error: errorReducer,
   favorites: favoritesReducer,
   cache: cacheReducer,
-  berths: berthReduder
+  berths: berthReduder,
+  taskReducers: taskReducers
 });
