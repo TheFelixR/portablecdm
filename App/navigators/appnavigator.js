@@ -22,7 +22,8 @@ import BearthList           from '../components/berth-list-view';
 import BerthList            from '../components/berth-list-view';
 import BerthTimeLine        from '../components/berth-timeline-view';
 import NewStart             from '../components/newstart-view';
-import Checkboxes             from '../components/checkbox-view';
+import Checkboxes           from '../components/checkbox-view';
+import Report               from '../components/report-view';
 
 const BerthViewNavigator = StackNavigator({
     BerthList: { screen: BearthList }, // THIS SHOULD BE FIRST!!
@@ -86,7 +87,8 @@ const MainNavigator = DrawerNavigator({
     About: { screen: AboutView },
     Error: { screen: ErrorView },
     NewStart: { screen: NewStart },
-    Checkboxes: { screen: Checkboxes }
+    Checkboxes: { screen: Checkboxes },
+    Report: { screen: Report }
 }, {
     headerMode: 'none',
     drawerWidth: 3*Dimensions.get('window').width/4,
