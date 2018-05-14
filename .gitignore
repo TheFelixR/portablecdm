@@ -25,6 +25,9 @@
 !/App/config/
 !/App/config/*
 
+!/App/containers/
+!/App/containers/*
+!/App/containers/**
 
 # Descende into reflections
 !reflections/

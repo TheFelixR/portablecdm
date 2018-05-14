@@ -46,7 +46,6 @@ export default class AddComponent extends Component {
                             source={require('../../assets/riseLogo.png')}
                         />
                     </TouchableHighlight>
-                    
 
             </View>
         )
@@ -56,7 +55,7 @@ export default class AddComponent extends Component {
 const styles = StyleSheet.create({
     addContainer: {
         flex: 1,
-        backgroundColor: 'tomato',
+        backgroundColor: 'blue',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
