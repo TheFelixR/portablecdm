@@ -78,7 +78,7 @@ class NewStart extends Component {
 				//return 'Stage2View';
 			case 'SAILED':
 			case 'ANCHORED' :
-				//return 'Stage3View';
+				return 'Report';
 			default:
 				return 'TimeLine';
 		}
