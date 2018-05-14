@@ -11,6 +11,7 @@ import {
     RefreshControl,
     Alert,
     WebView,
+    Dimensions,
 } from 'react-native'
 
 import {
@@ -32,6 +33,9 @@ import {
 } from '../../actions';
 import { getTimeDifferenceString, getDateTimeString } from '../../util/timeservices';
 import colorScheme from '../../config/colors';
+
+
+
 const timer = null;
 const portCallId = null;
 
@@ -95,6 +99,7 @@ class TimeLineViewBefore extends Component {
         const {params} = this.props.navigation.state;
         let { dataSource } = this.state;
         console.log(etb);
+        const mapHeight = Dimensions.get('window').height;
 
         if(!loading) dataSource = dataSource.cloneWithRows(operations);
 
@@ -120,7 +125,7 @@ class TimeLineViewBefore extends Component {
                 <Text style={styles.headerText2}>ETB: {getDateTimeString(new Date(etb))}</Text>
 
                 <WebView
-                source={{ html: this.createMap(mmsi) }}
+                source={{ html: this.createMap(mapHeight - 200,mmsi) }}
                 />
 
 
@@ -128,10 +133,10 @@ class TimeLineViewBefore extends Component {
         );
     }
 
-    createMap(mmsi) {
+    createMap(height,mmsi) {
       return "<script type='text/javascript'>" +
              "width='99.9%';" +
-             "height='450';" +
+             "height='" + height + "';"+
              "border='0';" +
              "shownames='false';" +
              //"latitude='37.4460';" +
