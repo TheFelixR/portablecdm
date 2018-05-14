@@ -10,6 +10,12 @@ import {
     Image,
 } from 'react-native';
 
+import {
+    SearchBar,
+} from 'react-native-elements';
+
+import colorScheme from '../../config/colors';
+
 export default class AddComponent extends Component {
     constructor (props) {
         super(props);
@@ -17,18 +23,22 @@ export default class AddComponent extends Component {
             newTaskName: ''
         });
     }
+    
     render() {
         return (
             <View style={styles.addContainer}>
                 
-                <TextInput style={styles.textInput}
-                    placeholderTextColor='black'
+                <SearchBar
+                    containerStyle = {styles.searchBarContainer}
+                    clearIcon
+                    inputStyle = {{backgroundColor: colorScheme.primaryContainerColor}}
+                    lightTheme
+                    placeholderTextColor = {colorScheme.tertiaryTextColor}
+
                     placeholder='Enter task name'
-                    onChangeText= {
-                        (text) => {
-                            this.setState({ newTaskName: text});
-                        }
-                    }/>
+                    onChangeText= { text => {this.setState({ newTaskName: text})}
+                    }
+                />
 
                     <TouchableHighlight
                         style={styles.touchableHighlight}
@@ -54,8 +64,7 @@ export default class AddComponent extends Component {
 
 const styles = StyleSheet.create({
     addContainer: {
-        flex: 1,
-        backgroundColor: 'blue',
+        backgroundColor: colorScheme.primaryColor,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -70,6 +79,13 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         color: 'black'
     }, 
+    searchBarContainer: {
+        backgroundColor: colorScheme.primaryColor,
+        flex: 4,
+        marginRight: 0,
+        borderBottomWidth: 0,
+        borderTopWidth: 0,
+    },
     touchableHighlight: {
         marginRight: 10,
     },
