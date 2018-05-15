@@ -16,7 +16,8 @@ import {
 	List, 
 	ListItem, 
 	Icon,
-	Text
+	Text,
+	Divider
 } from 'react-native-elements';
 
 import TopHeader from '../top-header-view';
@@ -35,10 +36,7 @@ const portCallId = null;
 class Report extends Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			data: []
-		}
+		this.state = { data: [] };
 	}
 	
 	componentWillMount() {
@@ -89,28 +87,18 @@ class Report extends Component {
 					subtitleStyle={{fontSize:13}}
 					subtitle={`${portCall.portCallId.replace('urn:mrn:stm:portcdm:port_call:', '')}`}
 					titleNumberOfLines={3}
-					titleStyle={{color: colorScheme.quaternaryTextColor, fontSize: 15, fontFamily: 'monospace'}}
+					titleStyle={styles.terminalStyle}
+				/>
+				<Divider 
+					key={'div'}
+					style={{ height: 10}}
 				/>
 			{
-				
 				data.map( (op) => {
 					if(op.status === 'OK'  && op.startTimeType === 'ACTUAL')
-						return (
-							<ListItem
-							key={op.eventId}
-							title={op.definitionId.replace(/_/g,' ')}
-							titleStyle={styles.titleStyle}
-							subtitle={	
-								`AtArea: ${this.getLocName(op,vessel)}` +'\n'+
-								`ReportedBy: ${this.getReportedBy(op)}` +'\n'+
-								`StartTime: ${getDateTimeString(new Date(op.startTime))}` +'\n'+
-								`EndTime: ${getDateTimeString(new Date(op.endTime))}`}
-							subtitleStyle={styles.subTitleStyle}
-							subtitleNumberOfLines={5}
-							onPress={() => {
-								navigate('TimeLine');
-							}}
-							/>
+						return (  //listitems for ACTUAL operation and all its non-dupe ACTUAL statements, ending in divider
+							this.getOperationsItem(op, vessel, navigate)
+								.concat(this.getStatementItems(op, navigate))
 						);
 				})	
 			}
@@ -118,6 +106,62 @@ class Report extends Component {
 			</ScrollView>
 			</View>
 		);
+	}
+
+	getOperationsItem(op, vessel, navigate) {
+		return [
+			<ListItem
+				key={op.eventId}
+				title={op.definitionId.replace(/_/g,' ')}
+				titleStyle={styles.titleStyle}
+				subtitle={	
+					`AtArea: ${this.getLocName(op,vessel)}` +'\n'+
+					//`ReportedBy: ${this.getReportedBy(op)}` +'\n'+
+					`StartTime: ${getDateTimeString(new Date(op.startTime))}` +'\n'+
+					`EndTime: ${getDateTimeString(new Date(op.endTime))}`}
+				subtitleStyle={styles.subTitleStyle}
+				subtitleNumberOfLines={5}
+				onPress={() => {
+					navigate('TimeLine');
+				}}
+			/>
+		];
+	}
+
+	getStatementItems(op, navigate) {
+		let { statements } = op;
+		let listItems = [];
+		let lastStatementDef = ['',''];
+		for(var i in statements) {
+			let statement = statements[i];
+			tempDef = statement.reportedBy+statement.time;
+			if(tempDef != lastStatementDef &&
+				statement.timeType === 'ACTUAL') {
+				listItems.push(
+				<ListItem
+					key={statement.messageId}
+					title={statement.stateDefinition.replace(/_/g,' ')}
+					titleStyle={styles.terminalStyle}
+					subtitle={	
+						`ReportedBy: ${statement.reportedBy
+							.replace('urn:mrn:stm:user:legacy:','')}` +'\n'+
+						`AtTime: ${getDateTimeString(new Date(statement.time))}`}
+					subtitleStyle={styles.subTitleStyle}
+					subtitleNumberOfLines={5}
+					onPress={() => {
+						navigate('TimeLine');
+					}}
+				/>);
+				lastStatementDef = statement.reportedBy+statement.time; //remove dupes
+			}
+		}
+		listItems.reverse().push( //reverse because statements[] order, adding divider
+			<Divider 
+				key={lastStatementDef}
+				style={{ height: 10}}
+			/>
+		)
+		return listItems;
 	}
 
 	getLocName(op,vessel) {
@@ -141,6 +185,11 @@ const styles = StyleSheet.create ({
 		backgroundColor: colorScheme.primaryColor
 	},
 	titleStyle: {
+		color: colorScheme.quaternaryTextColor,
+	},
+	terminalStyle: {
+		fontFamily: 'monospace',
+		fontSize: 14,
 		color: colorScheme.quaternaryTextColor,
 	},
 	subTitleStyle: {

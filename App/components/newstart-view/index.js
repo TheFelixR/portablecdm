@@ -172,8 +172,10 @@ class NewStart extends Component {
 	}
 	
 	favoritePortCalls(portCalls) {
-		return portCalls.filter(portCall => {
-			if (this.isFavorite(portCall)) { return portCall; }
+		return portCalls.filter( (portCall) => {
+			if (this.isFavorite(portCall) &&
+			(!portCall.stage || this.props.filters.stages.includes(portCall.stage))) 
+				{ return portCall; }
 		}).sort((a, b) => this.sortFilters(a, b));
 	}
 }
