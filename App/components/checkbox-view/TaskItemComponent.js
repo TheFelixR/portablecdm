@@ -1,46 +1,66 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Swipeout from 'react-native-swipeout';
 
 import {
 	View,
     Text,
     StyleSheet,
     FlatList,
-    TouchableOpacity
 } from 'react-native';
+import { CheckBox } from 'react-native-elements';
 
 export default class TaskItemComponent extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+
+        // Buttons
+        let deleteBtn = [
+            {
+                text: 'X',
+                backgroundColor:'red',
+                color: 'white',
+            }
+        ]
+
+        let completeBtn = [
+            {
+                text: '✓',
+                backgroundColor:'green',
+                color: 'white',
+            }
+        ]
+
         return (
-            <View style={styles.container}>
-                <TouchableOpacity style={styles.touchableOpacity}
-                    onPress = { () => {
-                        //Call this action in a container
-                    }}
-                />
-                <Text style={styles.listItem}>
-                    {this.props.taskName}
-                </Text>
-            </View>
+            <Swipeout left={deleteBtn} right={completeBtn} style={styles.swipeout}>
+                <View style={styles.container}>
+                    <Text style={styles.listItem}>
+                        {this.props.taskName}
+                    </Text>
+                </View>
+            </Swipeout>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    swipeout: {
+        backgroundColor: 'white',
+        marginTop:10,
+    },
     container: {
-        flex: 1,
     },
     listItem: {
-        margin: 20,
-        color: 'red'//this.props.completed == true ? 'darkgreen' : 'black'
-    },
-    touchableOpacity: {
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0, 
-        right: 0
+        color: 'black',
+        padding: 10,
+        shadowOpacity: 0.75,
+        shadowRadius: 5,
+        shadowColor: 'red',
+        shadowOffset: { height: 0, width: 0 }
     }
-
 
 });

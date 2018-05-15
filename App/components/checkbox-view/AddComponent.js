@@ -30,11 +30,9 @@ export default class AddComponent extends Component {
                 
                 <SearchBar
                     containerStyle = {styles.searchBarContainer}
-                    clearIcon
                     inputStyle = {{backgroundColor: colorScheme.primaryContainerColor}}
                     lightTheme
                     placeholderTextColor = {colorScheme.tertiaryTextColor}
-
                     placeholder='Enter task name'
                     onChangeText= { text => {this.setState({ newTaskName: text})}
                     }
