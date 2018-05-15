@@ -52,6 +52,13 @@ const TimeLineBeforeNavigator = StackNavigator({
   headerMode: 'none',
 });
 
+const NewStartNavigator = StackNavigator({
+  NewStart: { screen: NewStart},
+  FilterMenu: {screen: FilterMenu},
+}, {
+  headerMode: 'none',
+});
+
 const PortCallListNavigator = StackNavigator({
   PortCallList: { screen: PortCallList},
   FilterMenu: {screen: FilterMenu},
@@ -76,6 +83,7 @@ const InitiatePortCallNavigator = StackNavigator({
 });
 
 const MainNavigator = DrawerNavigator({
+    NewStart: { screen: NewStartNavigator },
     PortCalls: { screen: PortCallListNavigator }, // THIS SHOULD BE FIRST!!
     Berths: { screen: BerthViewNavigator },
     TimeLine: {screen: TimeLineNavigator},
@@ -86,7 +94,6 @@ const MainNavigator = DrawerNavigator({
     Settings: { screen: SettingsNavigator },
     About: { screen: AboutView },
     Error: { screen: ErrorView },
-    NewStart: { screen: NewStart },
     Checkboxes: { screen: Checkboxes },
     Report: { screen: Report }
 }, {

@@ -88,7 +88,7 @@ class SideMenu extends Component {
                         underlayColor={colorScheme.secondaryColor}
                         title={
                             <View style={styles.textContainer}>
-                                <Text style={canBeAccessedEverywhereExceptOnLogin}>NewStart</Text>     
+                                <Text style={canBeAccessedEverywhereExceptOnLogin}>Agent Start</Text>     
                             </View>
                         }
                         onPress={() => {
