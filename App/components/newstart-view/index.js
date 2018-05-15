@@ -46,11 +46,12 @@ class NewStart extends Component {
 		
 		return (
 			<View style={styles.container}>
-			<TopHeader title="          Agent Start              " navigation={this.props.navigation} firstPage
+			<TopHeader title="          Agent Start              " //padding to center
+			navigation={this.props.navigation} firstPage
 			selectorIcon={{
 				name: 'filter-list',
 				color: colorScheme.primaryTextColor,
-					onPress: () => navigate('FilterMenu'),
+				onPress: () => navigate('FilterMenu'),
 			}}/>
 			<ScrollView>
 			<List>
@@ -61,7 +62,7 @@ class NewStart extends Component {
 						avatar={portCall.vessel.photoURL ? { uri: portCall.vessel.photoURL } : null}
 						key={portCall.portCallId}
 						title={portCall.vessel.name}
-						badge={{ element: this.renderFavorites(portCall) }}
+						badge={{ element: this.renderStage(portCall) }}
 						titleStyle={styles.titleStyle}
 						subtitleNumberOfLines={4}
 						subtitle={this.getLastEvent(portCall) + '\n\n' +
@@ -85,7 +86,9 @@ class NewStart extends Component {
 	}
 	
 	getLastEvent(portCall) {
-		let info = `Last ${portCall.lastUpdatedTimeType}: ` + 
+		let updateType = 
+			(!!portCall.lastUpdatedTimeType ? portCall.lastUpdatedTimeType : 'PLANNED');
+		let info = `Last ${updateType}: ` +
 		getDateTimeString(new Date(portCall.lastUpdated)) + '\n' +
 		portCall.lastUpdatedState.replace(/_/g,' ');
 		return info;
@@ -98,7 +101,7 @@ class NewStart extends Component {
 				return 'TimeLineBefore';
 			case 'ARRIVED' :
 			case 'BERTHED' :
-				//return 'Stage2View';
+				return 'TimeLine';
 			case 'SAILED':
 			case 'ANCHORED' :
 				return 'Report';
@@ -138,7 +141,7 @@ class NewStart extends Component {
 		)
 	}
 				
-	renderFavorites(portCall) {
+	renderStage(portCall) {
 		return (
 			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
 			{!!portCall.stage && <Text style={[styles.subTitleStyle, { fontSize: 11, marginLeft: 4 }]}>
