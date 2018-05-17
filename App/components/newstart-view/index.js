@@ -16,8 +16,7 @@ import {
 import {
 	Button,
 	List,
-	ListItem,
-	Icon,
+	ListItem
 } from 'react-native-elements';
 
 import colorScheme from '../../config/colors';
@@ -29,14 +28,14 @@ class NewStart extends Component {
 	componentWillMount() {
 		this.loadPortCalls = this.loadPortCalls.bind(this);
 		this.loadPortCalls()
-				.then(this.props.bufferPortCalls);
+			.then(this.props.bufferPortCalls);
 	}
 
 	loadPortCalls() {
 		return this.props.updatePortCalls().then(() => {
-				if(this.props.error.hasError) {
-						navigate('Error');
-				}
+			if(this.props.error.hasError) {
+					navigate('Error');
+			}
 		});
 	}
 	
@@ -56,7 +55,7 @@ class NewStart extends Component {
 			<ScrollView>
 			<List>
 			{
-				this.favoritePortCalls(portCalls).map( (portCall) => (
+				this.listPortCalls(portCalls).map( (portCall) => (
 					<ListItem
 						roundAvatar
 						avatar={portCall.vessel.photoURL ? { uri: portCall.vessel.photoURL } : null}
@@ -125,10 +124,10 @@ class NewStart extends Component {
 							navigate('Report');
 					}},
 					{
-						text:'Show TimeLine View',
+						text:'Show Swipe View',
 						onPress: () => {
 							selectPortCall(portCall);
-							navigate('TimeLine');
+							navigate('SwipeView');
 					}},
 					{
 						text:'Show Map View',
@@ -138,15 +137,15 @@ class NewStart extends Component {
 					}}
 				]
 			)
-		)
+		);
 	}
 				
 	renderStage(portCall) {
 		return (
 			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-			{!!portCall.stage && <Text style={[styles.subTitleStyle, { fontSize: 11, marginLeft: 4 }]}>
-			{portCall.stage.replace(/_/g, ' ')}
-			</Text>}
+				{!!portCall.stage && <Text style={[styles.subTitleStyle, { fontSize: 11, marginLeft: 4 }]}>
+				{portCall.stage.replace(/_/g, ' ')}
+				</Text>}
 			</View>
 		);
 	}
@@ -171,7 +170,7 @@ class NewStart extends Component {
 		return 0;
 	}
 	
-	favoritePortCalls(portCalls) {
+	listPortCalls(portCalls) {
 		return portCalls.filter( (portCall) => {
 			if (this.isFavorite(portCall) &&
 			(!portCall.stage || this.props.filters.stages.includes(portCall.stage))) 
