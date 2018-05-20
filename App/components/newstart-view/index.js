@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { 
-	selectPortCall, 
-	updatePortCalls 
+import {
+	selectPortCall,
+	updatePortCalls
 } from '../../actions';
 
 import {
@@ -38,14 +38,14 @@ class NewStart extends Component {
 			}
 		});
 	}
-	
+
 	render() {
 		const { navigation, portCalls, selectPortCall } = this.props;
 		const { navigate } = navigation;
-		
+
 		return (
 			<View style={styles.container}>
-			<TopHeader title="          Agent Start              " //padding to center
+			<TopHeader title="       Agent Start        " //padding to center
 			navigation={this.props.navigation} firstPage
 			selectorIcon={{
 				name: 'filter-list',
@@ -83,16 +83,16 @@ class NewStart extends Component {
 			</View>
 		);
 	}
-	
+
 	getLastEvent(portCall) {
-		let updateType = 
+		let updateType =
 			(!!portCall.lastUpdatedTimeType ? portCall.lastUpdatedTimeType : 'PLANNED');
 		let info = `Last ${updateType}: ` +
 		getDateTimeString(new Date(portCall.lastUpdated)) + '\n' +
 		portCall.lastUpdatedState.replace(/_/g,' ');
 		return info;
 	}
-	
+
 	navigateStage(portCall) {
 		switch (portCall.stage) {
 			case 'PLANNED':
@@ -108,7 +108,7 @@ class NewStart extends Component {
 				return 'TimeLine';
 		}
 	}
-	
+
 	navigateLongPress(portCall) {
 		let { navigation, selectPortCall } = this.props;
 		let { navigate } = navigation;
@@ -139,7 +139,7 @@ class NewStart extends Component {
 			)
 		);
 	}
-				
+
 	renderStage(portCall) {
 		return (
 			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -149,12 +149,12 @@ class NewStart extends Component {
 			</View>
 		);
 	}
-	
+
 	isFavorite(portCall) {
 		return this.props.favoritePortCalls.includes(portCall.portCallId) ||
 		this.props.favoriteVessels.includes(portCall.vessel.imo);
 	}
-	
+
 	sortFilters(a, b) {
 		let { filters } = this.props;
 		let invert = filters.order === 'ASCENDING';
@@ -169,11 +169,11 @@ class NewStart extends Component {
 		}
 		return 0;
 	}
-	
+
 	listPortCalls(portCalls) {
 		return portCalls.filter( (portCall) => {
 			if (this.isFavorite(portCall) &&
-			(!portCall.stage || this.props.filters.stages.includes(portCall.stage))) 
+			(!portCall.stage || this.props.filters.stages.includes(portCall.stage)))
 				{ return portCall; }
 		}).sort((a, b) => this.sortFilters(a, b));
 	}

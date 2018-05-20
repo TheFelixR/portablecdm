@@ -68,14 +68,14 @@ const styles = {
             width: 138,
             height: 75,
           },
-      }  
+      }
     },
     texts: {
         infoText: {
-            marginLeft: 10, 
-            marginRight: 10, 
-            color: colorScheme.quaternaryTextColor, 
-            marginTop: 4
+            marginLeft: 10,
+            marginRight: 10,
+            color: colorScheme.quaternaryTextColor,
+            marginTop: 4,
           },
           headerText: {
             textAlign: 'center',
