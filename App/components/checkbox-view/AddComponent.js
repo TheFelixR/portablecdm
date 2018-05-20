@@ -24,6 +24,17 @@ export default class AddComponent extends Component {
         });
     }
     
+
+    _onPressedHandler = () => {
+        if (!this.state.newTaskName.trim()) { // if empty: do nothing
+            return;
+        }
+        // Call click event => use 'Container', look at AddContainer for additional information.
+        this.props.onClickAdd(this.state.newTaskName);
+
+    }
+
+
     render() {
         return (
             <View style={styles.addContainer}>
@@ -34,20 +45,13 @@ export default class AddComponent extends Component {
                     lightTheme
                     placeholderTextColor = {colorScheme.tertiaryTextColor}
                     placeholder='Enter task name'
-                    onChangeText= { text => {this.setState({ newTaskName: text})}
-                    }
+                    onChangeText= { text => {this.setState({ newTaskName: text})}}
+                    clearIcon
                 />
 
                     <TouchableHighlight
                         style={styles.touchableHighlight}
-                        onPress={() => {
-                            if (!this.state.newTaskName.trim()) { // if empty: do nothing
-                                return;
-                            }
-                            // Call click event => use 'Container'
-                            this.props.onClickAdd(this.state.newTaskName);
-
-                        }}
+                        onPress={this._onPressedHandler}
                     >
                         <Image
                             style={styles.image}

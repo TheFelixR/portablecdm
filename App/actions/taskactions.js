@@ -6,6 +6,11 @@ let newTaskId = 0;
 export const addNewTask = (inputTaskName) => {
     return {
         type: ADD_NEW_TASK,
+    //   payload : {
+    //       taskId : newTaskId++,
+    //       taskName: inputTaskName
+
+    //  }
         taskId: newTaskId++,
         taskName: inputTaskName
     }

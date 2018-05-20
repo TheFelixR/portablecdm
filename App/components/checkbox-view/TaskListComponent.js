@@ -20,6 +20,7 @@ export default class TaskListComponent extends Component {
                         </TaskItemContainer>
                     );     
                 }}
+        // WE probably should not add the taskName as key, since there will be duplicate fixes.
             keyExtractor={(item, index) => item.taskName}
             >
             </FlatList>
