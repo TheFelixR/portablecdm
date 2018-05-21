@@ -160,7 +160,8 @@ class SideMenu extends Component {
                         }}
                     />}
      
-                    <ListItem
+                    {!! vessel && 
+                        <ListItem
                         containerStyle={activeItemKey === 'Checkboxes' ? [styles.menuContainer, styles.selectedContainer] : styles.menuContainer}
                         leftIcon={{name:'done',
                         color: 'white'
@@ -176,7 +177,7 @@ class SideMenu extends Component {
                             if (activeItemKey !== 'Checkboxes' && activeItemKey != 'Login')
                                 navigate('Checkboxes');
                         }}
-                    />
+                    />}
 
 
 

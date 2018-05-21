@@ -21,8 +21,21 @@ export default class AddComponent extends Component {
     constructor (props) {
         super(props);
         this.state = ({
-            newTaskName: ''
+            newTaskName: '',
+            initiated: false
         });
+        console.log(this.props.tasks);
+        if(!this.state.initiated){
+            this.addCheckBox("Book tugboat");
+            this.addCheckBox("Book pilot");
+            this.addCheckBox("Book port");
+            this.addCheckBox("Book slugboat");
+            this.state.initiated = true;
+            console.log(this.state.initiated);
+        }
+
+
+
     }
 
 
@@ -32,7 +45,10 @@ export default class AddComponent extends Component {
         }
         // Call click event => use 'Container', look at AddContainer for additional information.
         this.props.onClickAdd(this.state.newTaskName);
+    }
 
+    addCheckBox(name) {
+        this.props.onClickAdd(name);
     }
 
 
@@ -41,6 +57,7 @@ export default class AddComponent extends Component {
             <View style={styles.addContainer}>
 
                 <SearchBar
+										noIcon
                     containerStyle = {styles.searchBarContainer}
                     inputStyle = {{backgroundColor: colorScheme.primaryContainerColor}}
                     lightTheme

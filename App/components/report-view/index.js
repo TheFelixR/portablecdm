@@ -12,9 +12,9 @@ import {
 	Alert,
 } from 'react-native'
 
-import { 
-	List, 
-	ListItem, 
+import {
+	List,
+	ListItem,
 	Icon,
 	Text,
 	Divider
@@ -22,9 +22,9 @@ import {
 
 import TopHeader from '../top-header-view';
 
-import { 
+import {
 	fetchPortCallEvents,
-	removeError 
+	removeError
 } from '../../actions';
 
 import { getDateTimeString } from '../../util/timeservices';
@@ -38,45 +38,45 @@ class Report extends Component {
 		super(props);
 		this.state = { data: [] };
 	}
-	
+
 	componentWillMount() {
 		let portCallId = this.props.portCall.portCallId;
 		timer = setInterval(() => this.loadOperations, 60000);
-		
+
 		this.loadOperations = this.loadOperations.bind(this);
 		if (!!portCallId)
 		this.loadOperations(portCallId);
 	}
-	
+
 	loadOperations(portCallId) {
 		this.props.fetchPortCallEvents(portCallId).then(() => {
 			if(this.props.error.hasError) {
-					this.props.navigation.navigate('Error');                   
+					this.props.navigation.navigate('Error');
 			}
-		}); 
+		});
 	}
-	
+
 	componentWillUnmount() {
 		clearInterval(timer);
 	}
-	
+
 	render() {
 		const { loading, operations, portCall, vessel, navigation } = this.props;
 		const { navigate } = navigation;
 		let { data } = this.state;
-		
+
 		if(!loading) data = operations;
-		
+
 		return(
 			<View style={styles.container}>
-			<TopHeader 
+			<TopHeader
 				title={`Report`} //${vessel.name}`}
 				firstPage
-				navigation={this.props.navigation} 
+				navigation={this.props.navigation}
 			/>
 			<ScrollView>
 			<List>
-				<ListItem 
+				<ListItem
 				  roundAvatar
 					avatar={vessel.photoURL ? { uri: vessel.photoURL } : null}
 					key={portCall.portCallId}
@@ -88,8 +88,9 @@ class Report extends Component {
 					subtitle={`${portCall.portCallId.replace('urn:mrn:stm:portcdm:port_call:', '')}`}
 					titleNumberOfLines={3}
 					titleStyle={styles.terminalStyle}
+					hideChevron
 				/>
-				<Divider 
+				<Divider
 					key={'div'}
 					style={{ height: 10}}
 				/>
@@ -100,7 +101,7 @@ class Report extends Component {
 							this.getOperationsItem(op, vessel, navigate)
 								.concat(this.getStatementItems(op, navigate))
 						);
-				})	
+				})
 			}
 			</List>
 			</ScrollView>
@@ -114,13 +115,14 @@ class Report extends Component {
 				key={op.eventId}
 				title={op.definitionId.replace(/_/g,' ')}
 				titleStyle={styles.titleStyle}
-				subtitle={	
+				subtitle={
 					`AtArea: ${this.getLocName(op,vessel)}` +'\n'+
 					//`ReportedBy: ${this.getReportedBy(op)}` +'\n'+
 					`StartTime: ${getDateTimeString(new Date(op.startTime))}` +'\n'+
 					`EndTime: ${getDateTimeString(new Date(op.endTime))}`}
 				subtitleStyle={styles.subTitleStyle}
 				subtitleNumberOfLines={5}
+				hideChevron
 				//onPress={() => {
 				//	navigate('TimeLine');
 				//}}
@@ -142,11 +144,12 @@ class Report extends Component {
 					key={statement.messageId}
 					title={statement.stateDefinition.replace(/_/g,' ')}
 					titleStyle={styles.terminalStyle}
-					subtitle={	
+					subtitle={
 						`ReportedBy: ${statement.reportedBy
 							.replace('urn:mrn:stm:user:legacy:','')}` +'\n'+
 						`AtTime: ${getDateTimeString(new Date(statement.time))}`}
 					subtitleStyle={styles.subTitleStyle}
+					hideChevron
 					subtitleNumberOfLines={5}
 					//onPress={() => {
 					//	navigate('TimeLine');
@@ -156,7 +159,7 @@ class Report extends Component {
 			}
 		}
 		listItems.reverse().push( //reverse because statements[] order, adding divider
-			<Divider 
+			<Divider
 				key={lastStatementDef}
 				style={{ height: 10}}
 			/>
@@ -208,6 +211,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-	fetchPortCallEvents, 
+	fetchPortCallEvents,
 	removeError
 })(Report);

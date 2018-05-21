@@ -11,12 +11,11 @@ import  TaskItemContainer from '../../containers/checkboxes/TaskItemContainer';
 export default class TaskListComponent extends Component {
     render() {
         return (
-            <FlatList
-            
-                data={this.props.tasks}
-                renderItem={({item, index}) => {
-                    return (
-                        <TaskItemContainer {...item}>
+            <FlatList 
+            data={this.props.tasks}
+            renderItem={({item, index}) => {
+            return (
+                        <TaskItemContainer {...item,index}>
 
                         </TaskItemContainer>
                     );     
