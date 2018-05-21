@@ -41,6 +41,7 @@ export default class AddComponent extends Component {
             <View style={styles.addContainer}>
 
                 <SearchBar
+										noIcon
                     containerStyle = {styles.searchBarContainer}
                     inputStyle = {{backgroundColor: colorScheme.primaryContainerColor}}
                     lightTheme
