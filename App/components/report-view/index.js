@@ -70,7 +70,7 @@ class Report extends Component {
 		return(
 			<View style={styles.container}>
 			<TopHeader 
-				title={`Report ${vessel.name}`}
+				title={`Report`} //${vessel.name}`}
 				firstPage
 				navigation={this.props.navigation} 
 			/>
@@ -121,9 +121,9 @@ class Report extends Component {
 					`EndTime: ${getDateTimeString(new Date(op.endTime))}`}
 				subtitleStyle={styles.subTitleStyle}
 				subtitleNumberOfLines={5}
-				onPress={() => {
-					navigate('TimeLine');
-				}}
+				//onPress={() => {
+				//	navigate('TimeLine');
+				//}}
 			/>
 		];
 	}
@@ -148,9 +148,9 @@ class Report extends Component {
 						`AtTime: ${getDateTimeString(new Date(statement.time))}`}
 					subtitleStyle={styles.subTitleStyle}
 					subtitleNumberOfLines={5}
-					onPress={() => {
-						navigate('TimeLine');
-					}}
+					//onPress={() => {
+					//	navigate('TimeLine');
+					//}}
 				/>);
 				lastStatementDef = statement.reportedBy+statement.time; //remove dupes
 			}
