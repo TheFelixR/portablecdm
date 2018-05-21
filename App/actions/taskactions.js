@@ -18,3 +18,15 @@ export const toggleTask = (taskId) => {
         taskId: taskId,
     }
 }
+
+
+
+
+export const deleteTask = (taskID) =>{
+    return {type: DELETE_ONE_TASK,
+            taskID : taskID}
+
+
+
+
+}

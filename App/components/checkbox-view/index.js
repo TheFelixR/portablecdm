@@ -26,7 +26,6 @@ import TaskListContainer from '../../containers/checkboxes/TaskListContainer';
 class Checkboxes extends Component {
 
 	render() {
-		
 		return (
 			<View style={styles.container}>
 				<TopHeader title="To do" 

@@ -32,7 +32,6 @@ export default class TaskItemComponent extends Component {
             }
         ]
 
-
         const swipesettings = {
             right : deleteBtn,
             onClose : (secID,rowID,direction) =>{
@@ -55,7 +54,7 @@ export default class TaskItemComponent extends Component {
         return (
             <Swipeout {...swipesettings} >
                 <View style={styles.container}>
-                    <CheckBox containerStyle={{width: '95%', margin: 0, marginTop:3}} size={32} checked={this.state.checked} title={this.props.taskName} onPress={()=> this.setState({checked: !this.state.checked})}/>
+                    <CheckBox containerStyle={{width: '95%', margin: 0, marginTop :3}} checked={this.state.checked} title={this.props.taskName} onPress={()=> this.setState({checked: !this.state.checked})}/>
                 </View>
             </Swipeout>
         )
@@ -72,6 +71,7 @@ const styles = StyleSheet.create({
 			  display: 'flex',
         flexDirection: 'column',
 				flex: 1,
+        alignItems: 'center'
     }
 
 });
