@@ -107,7 +107,7 @@ class TimeLineViewBefore extends Component {
 
             <View style={{flex: 1, backgroundColor: colorScheme.primaryContainerColor}}>
                 <TopHeader
-                    title = 'Under way'
+                    title = 'Location'
                     firstPage
                     navigation={this.props.navigation}
                     rightIconFunction={this.goToStateList}
