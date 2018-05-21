@@ -15,6 +15,7 @@ export default class TaskItemComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            activerowkey : null,
             checked:true
         }
     }
@@ -26,12 +27,33 @@ export default class TaskItemComponent extends Component {
             {
                 text: 'X',
                 backgroundColor:'red',
-                color: 'white',
+                color: 'white', 
+                onPress: () => {  console.log('deleted!')               }
             }
         ]
 
+
+        const swipesettings = {
+            right : deleteBtn,
+            onClose : (secID,rowID,direction) =>{
+                if(this.state.activerowkey != null){
+                    this.state.activerowkey = null;
+                }
+                this.setState
+                console.log('onClose, active rowkey after setting : ' + this.activerowkey);
+            },
+            onOpen : (secID,rowID,direction) =>{
+                if (this.state.activerowkey == null){
+                    this.state.activerowkey = rowID;
+                }
+                console.log('onOpen, active  rowkey :' + this.state.activerowkey);
+            },
+            
+            style : styles.swipeout,
+        }
+
         return (
-            <Swipeout left={deleteBtn} style={styles.swipeout}>
+            <Swipeout {...swipesettings} >
                 <View style={styles.container}>
                     <CheckBox checked={this.state.checked} onPress={()=> this.setState({checked: !this.state.checked})}/>
                     <Text style={styles.listItem}>
@@ -55,12 +77,16 @@ const styles = StyleSheet.create({
     },
     listItem: {
         color: 'black',
+        alignItems: 'right',
         padding: 10,
         shadowOpacity: 0.75,
         shadowRadius: 5,
         shadowColor: 'red',
         shadowOffset: { height: 0, width: 0 },
-        alignItems: 'center'
+        alignItems: 'center',
+        fontSize:   10,
+        fontWeight: 'bold'
+     
         
     }
 

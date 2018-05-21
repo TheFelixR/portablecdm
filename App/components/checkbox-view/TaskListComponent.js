@@ -12,6 +12,7 @@ export default class TaskListComponent extends Component {
     render() {
         return (
             <FlatList
+            
                 data={this.props.tasks}
                 renderItem={({item, index}) => {
                     return (
@@ -20,6 +21,8 @@ export default class TaskListComponent extends Component {
                         </TaskItemContainer>
                     );     
                 }}
+
+
         // WE probably should not add the taskName as key, since there will be duplicate fixes.
             keyExtractor={(item, index) => item.taskName}
             >
