@@ -12,6 +12,7 @@ import {
 
 import {
     SearchBar,
+		Icon,
 } from 'react-native-elements';
 
 import colorScheme from '../../config/colors';
@@ -23,7 +24,7 @@ export default class AddComponent extends Component {
             newTaskName: ''
         });
     }
-    
+
 
     _onPressedHandler = () => {
         if (!this.state.newTaskName.trim()) { // if empty: do nothing
@@ -38,7 +39,7 @@ export default class AddComponent extends Component {
     render() {
         return (
             <View style={styles.addContainer}>
-                
+
                 <SearchBar
                     containerStyle = {styles.searchBarContainer}
                     inputStyle = {{backgroundColor: colorScheme.primaryContainerColor}}
@@ -53,9 +54,11 @@ export default class AddComponent extends Component {
                         style={styles.touchableHighlight}
                         onPress={this._onPressedHandler}
                     >
-                        <Image
-                            style={styles.image}
-                            source={require('../../assets/add.png')}
+                        <Icon
+												name='add-circle'
+					              size = {50}
+					              underlayColor='transparent'
+					              color= {colorScheme.primaryContainerColor}
                         />
                     </TouchableHighlight>
 
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 1,
         color: 'black'
-    }, 
+    },
     searchBarContainer: {
         backgroundColor: colorScheme.primaryColor,
         flex: 4,
