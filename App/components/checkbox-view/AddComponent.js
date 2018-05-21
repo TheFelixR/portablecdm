@@ -55,7 +55,7 @@ export default class AddComponent extends Component {
                     >
                         <Image
                             style={styles.image}
-                            source={require('../../assets/riseLogo.png')}
+                            source={require('../../assets/add.png')}
                         />
                     </TouchableHighlight>
 
