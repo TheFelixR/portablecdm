@@ -33,7 +33,7 @@ export default class TaskItemComponent extends Component {
         return (
             <Swipeout left={deleteBtn} style={styles.swipeout}>
                 <View style={styles.container}>
-                    <CheckBox center containerStyle={{width: '95%'}} checked={this.state.checked} title={this.props.taskName} onPress={()=> this.setState({checked: !this.state.checked})}/>
+                    <CheckBox containerStyle={{width: '95%', margin: 0, marginTop:3}} size={32} checked={this.state.checked} title={this.props.taskName} onPress={()=> this.setState({checked: !this.state.checked})}/>
                 </View>
             </Swipeout>
         )
@@ -43,14 +43,13 @@ export default class TaskItemComponent extends Component {
 const styles = StyleSheet.create({
     swipeout: {
         backgroundColor: 'white',
-        marginTop:10,
+        marginTop:5,
     },
     container: {
 				width: '100%',
 			  display: 'flex',
         flexDirection: 'column',
 				flex: 1,
-        alignItems: 'center'
     }
 
 });
