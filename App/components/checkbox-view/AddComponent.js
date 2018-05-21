@@ -53,6 +53,7 @@ export default class AddComponent extends Component {
                     <TouchableHighlight
                         style={styles.touchableHighlight}
                         onPress={this._onPressedHandler}
+                        underlayColor={colorScheme.primaryColor}
                     >
                         <Icon
 												name='add-circle'

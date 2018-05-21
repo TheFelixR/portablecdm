@@ -18,7 +18,7 @@ import taskReducers from './taskReducers';
 export default persistCombineReducers(
   { 
     key: 'primary', 
-    whitelist: ['states', 'settings', 'filters', 'favorites', 'cache'], 
+    whitelist: ['states', 'settings', 'filters', 'favorites', 'cache', 'task'], 
     storage: AsyncStorage
   }, {
   portCalls: portCallReducer,
@@ -32,5 +32,5 @@ export default persistCombineReducers(
   favorites: favoritesReducer,
   cache: cacheReducer,
   berths: berthReduder,
-  taskReducers: taskReducers
+  task: taskReducers
 });
