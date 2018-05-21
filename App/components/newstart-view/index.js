@@ -70,7 +70,8 @@ class NewStart extends Component {
 						subtitleStyle={styles.subTitleStyle}
 						onPress={() => {
 							selectPortCall(portCall);
-							navigate(this.navigateStage(portCall));
+							navigate('SwipeView');
+							//navigate(this.navigateStage(portCall));
 						}}
 						onLongPress={() => {
 							this.navigateLongPress(portCall)
@@ -124,10 +125,10 @@ class NewStart extends Component {
 							navigate('Report');
 					}},
 					{
-						text:'Show Swipe View',
+						text:'Show TimeLine View',
 						onPress: () => {
 							selectPortCall(portCall);
-							navigate('SwipeView');
+							navigate('TimeLine');
 					}},
 					{
 						text:'Show Map View',
