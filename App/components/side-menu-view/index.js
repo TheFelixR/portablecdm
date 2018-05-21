@@ -169,7 +169,7 @@ class SideMenu extends Component {
                         underlayColor={colorScheme.secondaryColor}
                         title={
                             <View style={styles.textContainer}>
-                                <Text style={canBeAccessedEverywhereExceptOnLogin}>Checkboxes</Text>     
+                                <Text style={canBeAccessedEverywhereExceptOnLogin}>To do</Text>     
                             </View>
                         }
                         onPress={() => {
