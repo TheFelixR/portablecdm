@@ -14,6 +14,9 @@ export default class TaskItemComponent extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            checked:true
+        }
     }
 
     render() {
@@ -41,6 +44,7 @@ export default class TaskItemComponent extends Component {
                     <Text style={styles.listItem}>
                         {this.props.taskName}
                     </Text>
+                    <CheckBox value={this.state.checked} onChange={()=>this.setState({ checked: !this.state.checked })}/>
                 </View>
             </Swipeout>
         )
@@ -53,6 +57,9 @@ const styles = StyleSheet.create({
         marginTop:10,
     },
     container: {
+        flexDirection: 'row',
+        alignItems: 'center'
+
     },
     listItem: {
         color: 'black',
@@ -60,7 +67,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.75,
         shadowRadius: 5,
         shadowColor: 'red',
-        shadowOffset: { height: 0, width: 0 }
+        shadowOffset: { height: 0, width: 0 },
+        alignItems: 'center'
+        
     }
 
 });
