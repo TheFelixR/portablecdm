@@ -12,6 +12,7 @@ import {
 
 import {
     SearchBar,
+		Icon,
 } from 'react-native-elements';
 
 import colorScheme from '../../config/colors';
@@ -23,35 +24,42 @@ export default class AddComponent extends Component {
             newTaskName: ''
         });
     }
-    
+
+
+    _onPressedHandler = () => {
+        if (!this.state.newTaskName.trim()) { // if empty: do nothing
+            return;
+        }
+        // Call click event => use 'Container', look at AddContainer for additional information.
+        this.props.onClickAdd(this.state.newTaskName);
+
+    }
+
+
     render() {
         return (
             <View style={styles.addContainer}>
-                
+
                 <SearchBar
                     containerStyle = {styles.searchBarContainer}
                     inputStyle = {{backgroundColor: colorScheme.primaryContainerColor}}
                     lightTheme
                     placeholderTextColor = {colorScheme.tertiaryTextColor}
                     placeholder='Enter task name'
-                    onChangeText= { text => {this.setState({ newTaskName: text})}
-                    }
+                    onChangeText= { text => {this.setState({ newTaskName: text})}}
+                    clearIcon
                 />
 
                     <TouchableHighlight
                         style={styles.touchableHighlight}
-                        onPress={() => {
-                            if (!this.state.newTaskName.trim()) { // if empty: do nothing
-                                return;
-                            }
-                            // Call click event => use 'Container'
-                            this.props.onClickAdd(this.state.newTaskName);
-
-                        }}
+                        onPress={this._onPressedHandler}
+                        underlayColor={colorScheme.primaryColor}
                     >
-                        <Image
-                            style={styles.image}
-                            source={require('../../assets/riseLogo.png')}
+                        <Icon
+												name='add-circle'
+					              size = {50}
+					              underlayColor='transparent'
+					              color= {colorScheme.primaryContainerColor}
                         />
                     </TouchableHighlight>
 
@@ -76,7 +84,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 1,
         color: 'black'
-    }, 
+    },
     searchBarContainer: {
         backgroundColor: colorScheme.primaryColor,
         flex: 4,

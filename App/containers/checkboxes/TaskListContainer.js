@@ -5,7 +5,7 @@ import { toggleTask } from '../../actions';
 
 const mapStateToProps = state => {
         return {
-        tasks: !state.taskReducers ? [] : state.taskReducers
+        tasks: !state.task ? [] : state.task
     }
 }
 

@@ -44,7 +44,7 @@ export default class TopHeader extends Component {
             color= {colorScheme.primaryContainerColor}
             size= {50}
             underlayColor='transparent'
-            onPress={() => { 
+            onPress={() => {
               if(!!backArrowFunction) {
                 backArrowFunction();
               } else {
@@ -69,7 +69,7 @@ export default class TopHeader extends Component {
             />}
           <Text
             style= {styles.headerText}
-            h4
+            h3
           >
           {title}
           </Text>
@@ -88,7 +88,7 @@ export default class TopHeader extends Component {
             name={selectorIcon.name}
             color={selectorIcon.color}
             onPress={selectorIcon.onPress}
-            size={30}
+            size={40}
             />
           }
           {!!selectorIcon &&
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingLeft: 15,
     paddingRight: 15,
-    paddingBottom: 15,
+    // paddingBottom: 15,
     flexDirection: 'row',
     backgroundColor: colorScheme.primaryColor,
     justifyContent: 'space-between',

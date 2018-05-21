@@ -30,16 +30,8 @@ export default class TaskItemComponent extends Component {
             }
         ]
 
-        let completeBtn = [
-            {
-                text: '✓',
-                backgroundColor:'green',
-                color: 'white',
-            }
-        ]
-
         return (
-            <Swipeout left={deleteBtn} right={completeBtn} style={styles.swipeout}>
+            <Swipeout left={deleteBtn} style={styles.swipeout}>
                 <View style={styles.container}>
                     <Text style={styles.listItem}>
                         {this.props.taskName}

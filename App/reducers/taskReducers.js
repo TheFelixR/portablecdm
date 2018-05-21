@@ -3,13 +3,10 @@ import {ADD_NEW_TASK, TOGGLE_ONE_TASK } from '../actions/types.js';
 const taskReducer = (tasks = [], action) => {
     switch (action.type) {
         case ADD_NEW_TASK:
-            return [
-                ...tasks,
-                {
+            return [...tasks,{
                     taskId: action.taskId,
                     taskName: action.taskName,
-                    completed: false
-                }
+                    completed: false}
             ]
         case TOGGLE_ONE_TASK:
             return tasks.map( task => //iterate the tasks

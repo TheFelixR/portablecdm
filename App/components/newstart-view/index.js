@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { 
-	selectPortCall, 
-	updatePortCalls 
+import {
+	selectPortCall,
+	updatePortCalls
 } from '../../actions';
 
 import {
@@ -16,8 +16,7 @@ import {
 import {
 	Button,
 	List,
-	ListItem,
-	Icon,
+	ListItem
 } from 'react-native-elements';
 
 import colorScheme from '../../config/colors';
@@ -29,24 +28,24 @@ class NewStart extends Component {
 	componentWillMount() {
 		this.loadPortCalls = this.loadPortCalls.bind(this);
 		this.loadPortCalls()
-				.then(this.props.bufferPortCalls);
+			.then(this.props.bufferPortCalls);
 	}
 
 	loadPortCalls() {
 		return this.props.updatePortCalls().then(() => {
-				if(this.props.error.hasError) {
-						navigate('Error');
-				}
+			if(this.props.error.hasError) {
+					navigate('Error');
+			}
 		});
 	}
-	
+
 	render() {
 		const { navigation, portCalls, selectPortCall } = this.props;
 		const { navigate } = navigation;
-		
+
 		return (
 			<View style={styles.container}>
-			<TopHeader title="          Agent Start              " //padding to center
+			<TopHeader title="       Agent Start        " //padding to center
 			navigation={this.props.navigation} firstPage
 			selectorIcon={{
 				name: 'filter-list',
@@ -56,7 +55,7 @@ class NewStart extends Component {
 			<ScrollView>
 			<List>
 			{
-				this.favoritePortCalls(portCalls).map( (portCall) => (
+				this.listPortCalls(portCalls).map( (portCall) => (
 					<ListItem
 						roundAvatar
 						avatar={portCall.vessel.photoURL ? { uri: portCall.vessel.photoURL } : null}
@@ -84,16 +83,16 @@ class NewStart extends Component {
 			</View>
 		);
 	}
-	
+
 	getLastEvent(portCall) {
-		let updateType = 
+		let updateType =
 			(!!portCall.lastUpdatedTimeType ? portCall.lastUpdatedTimeType : 'PLANNED');
 		let info = `Last ${updateType}: ` +
 		getDateTimeString(new Date(portCall.lastUpdated)) + '\n' +
 		portCall.lastUpdatedState.replace(/_/g,' ');
 		return info;
 	}
-	
+
 	navigateStage(portCall) {
 		switch (portCall.stage) {
 			case 'PLANNED':
@@ -109,7 +108,7 @@ class NewStart extends Component {
 				return 'TimeLine';
 		}
 	}
-	
+
 	navigateLongPress(portCall) {
 		let { navigation, selectPortCall } = this.props;
 		let { navigate } = navigation;
@@ -125,10 +124,10 @@ class NewStart extends Component {
 							navigate('Report');
 					}},
 					{
-						text:'Show TimeLine View',
+						text:'Show Swipe View',
 						onPress: () => {
 							selectPortCall(portCall);
-							navigate('TimeLine');
+							navigate('SwipeView');
 					}},
 					{
 						text:'Show Map View',
@@ -138,24 +137,24 @@ class NewStart extends Component {
 					}}
 				]
 			)
-		)
+		);
 	}
-				
+
 	renderStage(portCall) {
 		return (
 			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-			{!!portCall.stage && <Text style={[styles.subTitleStyle, { fontSize: 11, marginLeft: 4 }]}>
-			{portCall.stage.replace(/_/g, ' ')}
-			</Text>}
+				{!!portCall.stage && <Text style={[styles.subTitleStyle, { fontSize: 11, marginLeft: 4 }]}>
+				{portCall.stage.replace(/_/g, ' ')}
+				</Text>}
 			</View>
 		);
 	}
-	
+
 	isFavorite(portCall) {
 		return this.props.favoritePortCalls.includes(portCall.portCallId) ||
 		this.props.favoriteVessels.includes(portCall.vessel.imo);
 	}
-	
+
 	sortFilters(a, b) {
 		let { filters } = this.props;
 		let invert = filters.order === 'ASCENDING';
@@ -170,11 +169,11 @@ class NewStart extends Component {
 		}
 		return 0;
 	}
-	
-	favoritePortCalls(portCalls) {
+
+	listPortCalls(portCalls) {
 		return portCalls.filter( (portCall) => {
 			if (this.isFavorite(portCall) &&
-			(!portCall.stage || this.props.filters.stages.includes(portCall.stage))) 
+			(!portCall.stage || this.props.filters.stages.includes(portCall.stage)))
 				{ return portCall; }
 		}).sort((a, b) => this.sortFilters(a, b));
 	}

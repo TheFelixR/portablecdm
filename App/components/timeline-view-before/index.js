@@ -107,7 +107,7 @@ class TimeLineViewBefore extends Component {
 
             <View style={{flex: 1, backgroundColor: colorScheme.primaryContainerColor}}>
                 <TopHeader
-                    title = 'TimelineBefore'
+                    title = 'Under way'
                     firstPage
                     navigation={this.props.navigation}
                     rightIconFunction={this.goToStateList}
@@ -125,7 +125,7 @@ class TimeLineViewBefore extends Component {
                 <Text style={styles.headerText2}>ETB: {getDateTimeString(new Date(etb))}</Text>
 
                 <WebView
-                source={{ html: this.createMap(mapHeight - 200,mmsi) }}
+                source={{ html: this.createMap(mapHeight - 158,mmsi) }}
                 />
 
 
