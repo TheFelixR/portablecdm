@@ -33,10 +33,10 @@ export default class TaskItemComponent extends Component {
         return (
             <Swipeout left={deleteBtn} style={styles.swipeout}>
                 <View style={styles.container}>
+                    <CheckBox checked={this.state.checked} onPress={()=> this.setState({checked: !this.state.checked})}/>
                     <Text style={styles.listItem}>
                         {this.props.taskName}
                     </Text>
-                    <CheckBox value={this.state.checked} onChange={()=>this.setState({ checked: !this.state.checked })}/>
                 </View>
             </Swipeout>
         )
