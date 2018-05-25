@@ -15,5 +15,5 @@
         * [Jonatan Eismark]()
         * [John Lindström Gidskehaug]()
         * [Daniel Nilsson]()
-        * [David Webber Fors]()
+        * [David Weber Fors](https://docs.google.com/document/d/1HZVAWao5U7crxtY63aamjMEoTJRlp-Scq_px33rAYP4/edit?usp=sharing)
         * [Bruno Fernandez]()
