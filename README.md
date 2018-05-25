@@ -1,7 +1,7 @@
 # Agent 2 - Skyriders
 
 
-![One Pager](skyriders.jpg)
+![One Pager](skyriders.pdf)
 
 ## Table of Contents
 
