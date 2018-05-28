@@ -73,7 +73,7 @@ export default class AddComponent extends Component {
                         underlayColor={colorScheme.primaryColor}
                     >
                         <Icon
-												name='add-circle'
+								name='add-circle'
 					              size = {50}
 					              underlayColor='transparent'
 					              color= {colorScheme.primaryContainerColor}
