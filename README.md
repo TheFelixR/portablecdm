@@ -12,7 +12,7 @@
     * Personal Reflections
         * [Oskar Lyrstrand](https://docs.google.com/document/d/1Pfhxnysv7OwNPkDdb1kERSwlbqtYSu96LZo7Uiw-7Wc/edit?usp=sharing)
         * [Emil Wennberg](https://docs.google.com/document/d/1JkRKteP0kQFOS5t8NGQXsHSx8hP0ljI_XPFyMUovP9Q/edit?usp=sharing)
-        * [Felix Rosén]()
+        * [Felix Rosén](https://docs.google.com/document/d/1WTQLm4lEYmtv-wqMN-EqNL3qj7I_8ZfVBMP9AWnm56g/edit?usp=sharing)
         * [Jonatan Eismark]()
         * [John Lindström Gidskehaug](https://docs.google.com/document/d/1eTYSVVzJtE3OhvvbOsL4606NESz9Abcvww315OqTk3c/edit)
         * [Daniel Nilsson](https://docs.google.com/document/d/1zKS1vdiE7_XFQnHAJt3qFOaF0Le1BKsZppFvajduwmM/edit?usp=sharing)
