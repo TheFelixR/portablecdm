@@ -20,3 +20,4 @@
         * [Bruno Fernandez]()
 
 * [Trello](https://trello.com/b/Q8iunR2A/dit543)
+* [Social Contract](https://docs.google.com/document/d/1PS30NF3rpRUSGV-1JApPZXhnm7RkHT7V0yikd41ptWo/edit?usp=sharing)
