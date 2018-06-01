@@ -17,7 +17,7 @@
         * [John Lindström Gidskehaug](https://docs.google.com/document/d/1eTYSVVzJtE3OhvvbOsL4606NESz9Abcvww315OqTk3c/edit)
         * [Daniel Nilsson](https://docs.google.com/document/d/1zKS1vdiE7_XFQnHAJt3qFOaF0Le1BKsZppFvajduwmM/edit?usp=sharing)
         * [David Weber Fors](https://docs.google.com/document/d/1HZVAWao5U7crxtY63aamjMEoTJRlp-Scq_px33rAYP4/edit?usp=sharing)
-        * [Bruno Fernandez]()
+        * [Bruno Fernandez](https://docs.google.com/document/d/1vI90ul7qov73_7V-AMcYqvFlheq3y96ajs0CL_bSrHE/edit?usp=sharing)
 
 * [Trello](https://trello.com/b/Q8iunR2A/dit543)
 * [Social Contract](https://docs.google.com/document/d/1PS30NF3rpRUSGV-1JApPZXhnm7RkHT7V0yikd41ptWo/edit?usp=sharing)
